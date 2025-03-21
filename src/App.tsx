@@ -60,7 +60,11 @@ export const App: React.FC = () => {
   }, [searchQueryTitle, selectedValue, todos]);
 
   const selectTodoOption = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedValue(event.target.value as Select);
+    const value = event.target.value;
+
+    if (Object.values(Select).includes(value as Select)) {
+      setSelectedValue(value as Select);
+    }
   };
 
   return (
